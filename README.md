@@ -66,3 +66,41 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+##################################################################
+Objetivo
+Criar uma aplicação que contenha​:
+
+Página de login:
+
+1. Única página disponível se não estiver logado;
+
+- Criar um usuário básico para acesso.
+
+2. Uma página de lista de dragões:
+
+- Os nomes devem estar em ordem alfabética;
+- A partir da lista, deverá ser possível remover e alterar as informações dos dragões.
+
+3. Uma página com os detalhes de um dragão específico:
+
+Os seguintes dados devem ser apresentados na página:
+
+- Data de criação;
+- Nome;
+- Tipo.
+
+4. Uma página para cadastro de dragões:
+
+Regras:
+
+Layout responsivo;
+Utilizar Angular 6+ ou React;
+Usar um sistema de controle de versão para entregar o teste (Github, Bitbucket, ...)
+O uso de libs é livre.
+O que será avaliado:
+
+Organização do código;
+Componentização das páginas;
+Interface organizada e amigável;
+Uso adequado do css (ou alguma biblioteca).

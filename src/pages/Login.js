@@ -1,31 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import apiDB from '../services/api';
-import logo from '../assets/logo-soft-colorido.svg';
+import firebase from "firebase";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
 import './Login.css';
+import uiConfig from '../services/auth'
 
 export default function Login({ history }){
-  const [ email, setEmail ] = useState('');
+  const [ user, setUser ] = useState(null); 
 
-  async function handleSubmit( event ){
-    event.preventDefaut();
-  
-    const response = await apiDB.post('/user', { email: email })
-    const { id } = response.data;
+  useEffect(() => {
+    async function loadUser(){
+      await firebase.auth().onAuthStateChanged(user => {
+        setUser(!!user);
+      })
+      if(user){
+        history.push('/home');
+      }
+    }
+    loadUser();
+  });
 
-    history.push(`/dragon/${ id }`)
-  }
+  console.log(firebase.auth().currentUser);
 
   return (
     <div className='login-container'>
-      <form onSubmit={ handleSubmit }>
-        <img src={ logo } alt='SoftDesign'/>
-        <input
-          placeholder="Email"
-          value={ email }
-          onChange={ (event) => { setEmail(event.target.value) } }
-        />
-        <button type="submit" >Sign In</button>
-      </form>
+      <StyledFirebaseAuth
+        uiConfig={ uiConfig }
+        firebaseAuth={firebase.auth()}
+      />
     </div>
   );
 }
