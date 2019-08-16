@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import api from '../services/api';
 
-export default function Details({ history, match }){
+export default function Details({ history }){
   const [ dragonName, setDragonName ] = useState([]);
   const [ dragonType, setDragonType ] = useState([]);
 
   async function handleSubmit(event){
     event.preventDefault();
 
-    const response = await api.post('/dragon', { 
+    await api.post('/dragon', { 
       createdAt: Date.now(),
       name: dragonName,
       type: dragonType,

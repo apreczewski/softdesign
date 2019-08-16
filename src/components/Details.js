@@ -6,7 +6,7 @@ export default function Details({ match }){
 
   useEffect(() => {
     async function loadDragon(){
-      const response = await api.get(`/dragon/${match.params.id}`);
+      const response = await api.get(`/dragon/${ match.params.id }`);
       setDragon(response.data)
     }
     loadDragon();

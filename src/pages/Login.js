@@ -19,11 +19,10 @@ export default function Login({ history }){
     loadUser();
   });
 
-  console.log(firebase.auth().currentUser);
-
   return (
     <div className='login-container'>
       <StyledFirebaseAuth
+        className='login-input'
         uiConfig={ uiConfig }
         firebaseAuth={firebase.auth()}
       />
