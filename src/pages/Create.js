@@ -1,21 +1,29 @@
 import React, { useState } from 'react';
+
 import api from '../services/api';
+import './create.css';
 
 export default function Details({ history }){
-  const [ dragonName, setDragonName ] = useState([]);
-  const [ dragonType, setDragonType ] = useState([]);
+  const [ dragonName, setDragonName ] = useState(null);
+  const [ dragonType, setDragonType ] = useState(null);
 
   async function handleSubmit(event){
     event.preventDefault();
-
-    await api.post('/dragon', { 
+    if(dragonName === null && dragonType === null){
+      alert("Emply input Name or Type");
+    }else{
+      await api.post('/dragon', { 
       createdAt: Date.now(),
       name: dragonName,
       type: dragonType,
       histories: []
     })
-    
-    history.push("/home");
+      history.push("/home");
+    }
+  }
+
+  function handleCancel(){
+    history.push("/");
   }
 
   return (
@@ -32,7 +40,9 @@ export default function Details({ history }){
           value={ dragonType }
           onChange={ event => { setDragonType(event.target.value) } }
         />
-        <button type="submit">Create</button>
+       
+        <a onClick={ handleCancel }> Cancel </a>
+        <a onClick={ handleSubmit }> Create </a>
       </form>
     </div>
   );

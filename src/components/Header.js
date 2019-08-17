@@ -23,7 +23,7 @@ function Header({ history }){
        <img src={ logo } alt='Dragons'/>
       </Link>
       <button onClick={ handleCreateDragon }>Create a New Dragon</button>
-      <button onClick={ handleSignOut }>Sign out User!</button>
+      <button onClick={ handleSignOut }>Sign Out</button>
     </header>
   );
 }

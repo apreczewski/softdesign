@@ -37,7 +37,8 @@ export default function Home({ history }){
 
 
   async function handleDelete(id){
-    await api.delete(`/dragon/${ id }`);
+    const response = await api.delete(`/dragon/${ id }`);
+    alert("Delete: " + response.data.name);
     setDragons(dragons.filter( dragon => dragon.id !== id ));
   }
   

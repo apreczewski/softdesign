@@ -19,15 +19,18 @@ function Edit({ show, onHide, id, reload }){
   }, [ id ])
     
   async function handleSubmit(){
-
-    await api.put(`/dragon/${ dragon.id }`, { 
-      createdAt: Date.now(),
-      name: dragonName,
-      type: dragonType,
-      histories: []
-    })
-    await reload();
-    onHide();
+    if(dragonName === "" && dragonType === ""){
+      alert("Emply input Name or Type");
+    }else{
+      await api.put(`/dragon/${ dragon.id }`, { 
+        createdAt: Date.now(),
+        name: dragonName,
+        type: dragonType,
+        histories: []
+      })
+      await reload();
+      onHide();
+    }
   }
 
   const ShowClassName = show ? "modal display-block" : "modal display-none";
