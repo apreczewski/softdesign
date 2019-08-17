@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from "firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth"
-import './Login.css';
+import './login.css';
 import uiConfig from '../services/auth'
 
 export default function Login({ history }){

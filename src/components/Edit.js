@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import api from '../services/api';
-import './Edit.css'
+import './edit.css'
 
 function Edit({ show, onHide, id, reload }){
   const [ dragon, setDragon ] = useState([]);

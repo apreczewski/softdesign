@@ -4,7 +4,7 @@ import firebase from 'firebase';
 import { withRouter } from 'react-router-dom';
 
 import logo from '../assets/logo-soft-colorido.svg';
-import './Header.css';
+import './header.css';
 
 function Header({ history }){
 
